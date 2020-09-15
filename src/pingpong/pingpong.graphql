@@ -1,0 +1,19 @@
+type Query {
+  noop: Boolean
+}
+
+type Mutation {
+  ping(id: String!): Ping
+}
+
+type Subscription {
+  pong: Pong
+}
+
+type Ping {
+  id: ID
+}
+
+type Pong {
+  pingId: ID
+}

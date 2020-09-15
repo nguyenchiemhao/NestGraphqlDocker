@@ -1,0 +1,39 @@
+type User {
+  id: ID!
+  name: String
+  email: String!
+  password: String!
+  gender: String
+}
+
+type Query {
+  user(id: ID!): User
+  users: [User]!
+  search(keySearch: String!): SearchUserResponse!
+}
+
+type Mutation {
+  create(user: UserInfo!): UserCreateResponse!
+}
+
+type Subscription {
+  created(email: String): String!
+}
+
+type UserCreateResponse {
+  code: Int!
+  success: Boolean!
+  message: String!
+}
+
+type SearchUserResponse {
+  items: [User]!
+  numOfItems: Int!
+}
+
+input UserInfo {
+  email: String!
+  password: String!
+  gender: String!
+  name: String!
+}
